@@ -39,5 +39,5 @@ ENV LOGGING_MAX_FILE=3
 ENV MAX_WORKERS=5
 
 # The inboard image likely has an ENTRYPOINT or CMD already defined
-# If you need to override it, you can add:
+# If you need to override it, try this(l never tried it though):
 # CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", "-c", "/gunicorn_conf.py", "app.main:app"]
