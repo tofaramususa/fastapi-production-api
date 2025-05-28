@@ -194,7 +194,7 @@ When running in development mode, interactive API documentation is available at:
 This project uses **inboard** as its Docker base image, providing enterprise-grade production capabilities:
 
 ### What is inboard?
-- **Production-Ready Base**: `ghcr.io/beusefulai/inboard:fastapi-python3.11`
+- **Production-Ready Base**: `ghcr.io/br3ndonland/inboard:fastapi-python3.10-slim`
 - **Uvicorn + Gunicorn**: Combines the speed of Uvicorn with the process management of Gunicorn
 - **Unified Logging**: Single logging configuration that handles all Python log streams
 - **Configurable**: Environment variable-based configuration with sane defaults

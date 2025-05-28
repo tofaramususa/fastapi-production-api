@@ -41,7 +41,7 @@ async def get_current_user(
     # Check if token matches master key
     master_key = settings.MASTER_TOKEN
     if master_key and token == master_key:
-        return APIUser(email="admin@dirtyboots.ai", uid="master", is_admin=True)
+        return APIUser(email="admin@example.com", uid="master", is_admin=True)
 
     user_data = await get_firebase_user(token)
     if not user_data:
@@ -51,7 +51,7 @@ async def get_current_user(
 
     # Check if user's email domain is in the admin domains list
     is_admin = False
-    admin_domains = ["beuseful.ai", "dirtyboots.ai", "onely.com"]
+    admin_domains = ["example.ai"]
 
     if email:
         domain = email.split("@")[-1].lower() if "@" in email else ""

@@ -68,10 +68,7 @@ app.add_middleware(
 # app.add_middleware(
 #     CORSMiddleware,
 #     allow_origin_regex=(
-#         r'^https:\/\/.*\.pipedream\.net$|'
-#         r'^https:\/\/.*\.dirtyboots\.ai$|'
-#         r'^https:\/\/.*\.beuseful\.ai$|'
-#         r'^https:\/\/beusefulllc\.app\.n8n\.cloud$|'
+#         r'^https:\/\/.*\.example\.com$|'
 #     ),
 #     allow_credentials=True,
 #     allow_methods=["*"],

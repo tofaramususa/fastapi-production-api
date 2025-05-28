@@ -1,4 +1,4 @@
-#base image inside our github container registry for repo github.com/beusefulai/inboard
+#base image inside our github container registry for repo github.com/br3ndonland/inboard
 FROM ghcr.io/br3ndonland/inboard:fastapi-python3.10-slim
 
 # Set environment variables
