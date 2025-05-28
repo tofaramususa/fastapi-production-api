@@ -1,5 +1,5 @@
 #base image inside our github container registry for repo github.com/beusefulai/inboard
-FROM ghcr.io/beusefulai/inboard:fastapi-python3.11
+FROM ghcr.io/br3ndonland/inboard:fastapi-python3.10-slim
 
 # Set environment variables
 ENV HATCH_ENV_TYPE_VIRTUAL_PATH=.venv

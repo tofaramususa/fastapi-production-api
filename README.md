@@ -8,7 +8,7 @@ A high-performance, production-ready API service built with **FastAPI** and **Mo
 - **FastAPI Framework**: High-performance async web framework with automatic OpenAPI documentation
 - **MongoDB Integration**: Async MongoDB operations using Motor and ODMantic ODM
 - **Microservices Ready**: Containerized with Docker for easy deployment and scaling
-- **Python 3.11+**: Modern Python with full type hints and async/await support
+- **Python 3.10+**: Modern Python with full type hints and async/await support
 
 ### 🔐 Security & Authentication
 - **Firebase Authentication**: Secure user authentication with Firebase integration
@@ -46,7 +46,11 @@ A high-performance, production-ready API service built with **FastAPI** and **Mo
 
 ### 🔧 Development & Operations
 - **Environment Configuration**: Comprehensive settings management with Pydantic Settings
-- **Docker Containerization**: Production-ready Docker setup with multi-stage builds
+- **Docker Containerization**: Production-ready Docker setup with inboard base image
+  - **inboard Base Image**: Built on `ghcr.io/br3ndonland/inboard:fastapi-python3.10-slim`
+  - **Uvicorn + Gunicorn**: Production ASGI server with worker process management
+  - **Unified Logging**: Single logging configuration for all components
+  - **Configurable Workers**: Scalable worker process management
 - **Development Tools**: 
   - Black code formatting
   - isort import sorting
@@ -78,6 +82,7 @@ A high-performance, production-ready API service built with **FastAPI** and **Mo
 
 ### Core Dependencies
 - **FastAPI**: Modern, fast web framework for building APIs
+- **inboard**: Production-ready Docker base image with Uvicorn + Gunicorn
 - **Motor**: Async MongoDB driver for Python
 - **ODMantic**: MongoDB ODM with Pydantic integration
 - **Pydantic v2**: Data validation and settings management
@@ -184,20 +189,27 @@ RATE_LIMIT_PRODUCT_CREATION_WINDOW = 7200  # 2 hours
 
 When running in development mode, interactive API documentation is available at:
 - **Swagger UI**: `http://localhost:8000/docs`
-- **ReDoc**: `http://localhost:8000/redoc`
-- **OpenAPI Schema**: `http://localhost:8000/openapi.json`
+- **ReDoc**: `
 
-### Authentication
+## 🐳 Docker & inboard
 
-All endpoints require authentication via Bearer token:
+This project uses **inboard** as its Docker base image, providing enterprise-grade production capabilities:
 
-```bash
-curl -H "Authorization: Bearer <your-token>" \
-     http://localhost:8000/api/v1/endpoint
-```
+### What is inboard?
+- **Production-Ready Base**: `ghcr.io/beusefulai/inboard:fastapi-python3.11`
+- **Uvicorn + Gunicorn**: Combines the speed of Uvicorn with the process management of Gunicorn
+- **Unified Logging**: Single logging configuration that handles all Python log streams
+- **Configurable**: Environment variable-based configuration with sane defaults
+- **Tested**: 100% test coverage and smoke tests for Docker images
 
-### Rate Limiting Headers
+### Key Benefits
+- **Process Management**: Automatic worker process scaling and management
+- **Graceful Shutdowns**: Proper signal handling for zero-downtime deployments
+- **Health Checks**: Built-in health monitoring capabilities
+- **Performance Optimized**: Pre-configured for production workloads
+- **Logging Integration**: Seamless log aggregation from all components
 
+### Ratelimiting
 API responses include rate limiting information:
 
 ```json
