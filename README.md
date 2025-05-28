@@ -1,6 +1,6 @@
 # Production API Service
 
-A high-performance, production-ready API service built with **FastAPI** and **MongoDB**, designed for scalable enterprise applications with comprehensive security, monitoring, and performance optimization features.
+A high-performance, production-ready API template, derived from a live setup, built with **FastAPI** and **MongoDB**, designed for scalable enterprise applications with comprehensive security, monitoring, and performance optimization features.
 
 ## 🚀 Features
 
