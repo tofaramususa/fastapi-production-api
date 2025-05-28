@@ -73,10 +73,8 @@ A high-performance, production-ready API service built with **FastAPI** and **Mo
 - **API Versioning**: Versioned endpoints for backward compatibility
 
 ### 🔄 Background Processing
-- **APScheduler Integration**: MongoDB-backed job scheduling
 - **Configurable Workers**: Scalable background task processing
 - **Cleanup Jobs**: Automatic maintenance and cleanup operations
-- **Production Scheduling**: Environment-aware scheduler initialization
 
 ## 🛠️ Technology Stack
 

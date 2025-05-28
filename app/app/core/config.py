@@ -79,11 +79,6 @@ class Settings(BaseSettings):
     FIRST_SUPERUSER_PASSWORD: str
     USERS_OPEN_REGISTRATION: bool = True
 
-    # Scheduler settings
-    SCHEDULER_WORKER_COUNT: int = 5
-    SCHEDULER_CLEANUP_INTERVAL: int = 60  # seconds
-    SCHEDULER_MAX_INSTANCES: int = 1
-
     # Redis settings
     UPSTASH_REDIS_REST_URL: Optional[str] = None
     UPSTASH_REDIS_REST_TOKEN: Optional[str] = None

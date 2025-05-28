@@ -50,7 +50,6 @@ dependencies = [
   "argon2-cffi-bindings==21.2.0",
   "odmantic>=1.0,<2.0",
   "firebase-admin==6.7.0",
-  "apscheduler[mongodb]==3.11.0",
   "pytz==2025.2",
   "prometheus_client==0.21.1",
   "upstash-ratelimit==1.1.0",

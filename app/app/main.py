@@ -1,4 +1,4 @@
-# FastAPI application entry point with Sentry integration, CORS configuration, and scheduler management
+# FastAPI application entry point with Sentry integration, CORS configuration
 from fastapi import FastAPI, Depends
 from starlette.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
@@ -19,30 +19,13 @@ logger = logging.getLogger(__name__)
 init_sentry()
 
 
-# lifespan manages application startup and shutdown events, handling scheduler initialization and cleanup in production.
+# lifespan manages application startup and shutdown events, handling initialization and cleanup in production.
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     """
     Lifespan context manager for application startup/shutdown events.
-    Properly handles scheduler initialization and cleanup.
-    Only initializes scheduler in production environment.
     """
-    if settings.PRODUCTION:
-        try:
-            await scheduler.start()
-            logger.info("Scheduler initialized successfully in production mode")
-        except Exception as e:
-            logger.error(f"Failed to initialize scheduler: {str(e)}")
-            # Don't raise the exception - let the API continue running
-
     yield
-
-    if settings.PRODUCTION:
-        try:
-            await scheduler.shutdown()
-            logger.info("Scheduler shut down successfully")
-        except Exception as e:
-            logger.error(f"Failed to shutdown scheduler: {str(e)}")
 
 
 # app is the main FastAPI application instance with lifespan management and OpenAPI configuration
